@@ -1,4 +1,5 @@
 import 'package:cars/screens/edit_car.dart';
+import 'package:cars/screens/landing_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +9,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(backgroundColor: Colors.white, body: EditCar()),
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: LandingPage(),
+      ),
     );
   }
 }

@@ -61,6 +61,10 @@ flutter:
           weight: 500
         - asset: assets/fonts/Dubai-Bold.ttf
           weight: 700
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/Helvetica.ttf
+
   assets:
     - assets/images/edit-car-main-icon.png
     - assets/images/Ellipse.png
@@ -68,6 +72,16 @@ flutter:
     - assets/images/germany.png
     - assets/images/england.png
     - assets/images/benzine.png
+    - assets/images/cars-logo.png
+    - assets/images/user-icon.png
+    - assets/images/landing-page-main-icon.png
+    - assets/images/Rectangle-1.png
+    - assets/images/Rectangle-2.png
+
+
+
+
+
 
 
 

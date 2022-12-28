@@ -9,8 +9,8 @@ class CustomRadio extends StatefulWidget {
 
 class _CustomRadioState extends State<CustomRadio> {
   List<RadioModel> radioButtons = [
-    RadioModel(false, 'سيارة جديدة'),
-    RadioModel(false, 'سيارة مستعملة')
+    RadioModel(false, 'سيارة مستعملة'),
+    RadioModel(true, 'سيارة جديدة'),
   ];
 
   @override
@@ -62,6 +62,9 @@ class RadioItem extends StatelessWidget {
           child: Text(
         _item.text,
         style: TextStyle(
+            fontFamily: 'Helvetica',
+            fontSize: 13.0,
+            fontWeight: _item.isSelected ? FontWeight.w700 : FontWeight.w400,
             color: _item.isSelected
                 ? const Color(0xFF327DE3)
                 : const Color(0xFF000000)),

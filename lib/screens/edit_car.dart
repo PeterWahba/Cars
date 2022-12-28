@@ -37,7 +37,7 @@ class EditCar extends StatelessWidget {
               const Text(
                 'تعديل الطلب وتغيير السيارة',
                 style: TextStyle(
-                  fontFamily: 'Dubai',
+                  fontFamily: 'Helvetica',
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: Color(0xFF327DE3),
@@ -46,7 +46,7 @@ class EditCar extends StatelessWidget {
               const Text(
                 'السيارة المراد شحنها غير مطابقة للبيانات',
                 style: TextStyle(
-                  fontFamily: 'Dubai',
+                  fontFamily: 'Helvetica',
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
@@ -57,6 +57,8 @@ class EditCar extends StatelessWidget {
                 dropdownItemsList2: carModelDropdownMenuItems,
                 label1: 'اختر الماركة',
                 label2: 'اختر الموديل',
+                value1: '1',
+                value2: '1',
               ),
               const SizedBox(height: 16),
               DoubleDropdownContainer(
@@ -64,6 +66,8 @@ class EditCar extends StatelessWidget {
                 dropdownItemsList2: engineType,
                 label1: 'سعة المحرك',
                 label2: 'نوع المحرك',
+                value1: '1',
+                value2: '1',
               ),
               const SizedBox(height: 16),
               DoubleDropdownContainer(
@@ -71,6 +75,8 @@ class EditCar extends StatelessWidget {
                 dropdownItemsList2: makeCountry,
                 label1: 'بلد الإقامة',
                 label2: 'بلد المنشأ',
+                value1: '1',
+                value2: '1',
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 32.0),
@@ -81,7 +87,7 @@ class EditCar extends StatelessWidget {
                     child: const Text(
                       'يمكنك الاستيراد من أي دولة تابعة للاتحاد الأوروبي',
                       style: TextStyle(
-                          fontFamily: 'Dubai',
+                          fontFamily: 'Helvetica',
                           fontSize: 13.0,
                           fontWeight: FontWeight.w400),
                     ),
@@ -95,7 +101,7 @@ class EditCar extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Text('نوع السيارة',
                       style: TextStyle(
-                          fontFamily: 'Dubai',
+                          fontFamily: 'Helvetica',
                           fontSize: 15.0,
                           fontWeight: FontWeight.w400)),
                 ),

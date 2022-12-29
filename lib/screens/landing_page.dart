@@ -1,11 +1,9 @@
-import 'dart:ui';
-
-import 'package:cars/data/dropdown_data.dart';
-import 'package:cars/widgets/custom_elevated_button.dart';
-import 'package:cars/widgets/custom_radio_buttons.dart';
-import 'package:cars/widgets/custome_container_with_shadow.dart';
-import 'package:cars/widgets/double_dropdown_container.dart';
-import 'package:cars/widgets/step_bars.dart';
+import 'package:cars/widgets/add_bank_account.dart';
+import 'package:cars/widgets/calculate_fees.dart';
+import 'package:cars/widgets/complete_account.dart';
+import 'package:cars/widgets/contact_us_box.dart';
+import 'package:cars/widgets/import_steps.dart';
+import 'package:cars/widgets/newly_added_cars.dart';
 import 'package:cars/widgets/user_button.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +12,7 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Stack(
             fit: StackFit.loose,
@@ -31,8 +30,8 @@ class LandingPage extends StatelessWidget {
               ),
               Image.asset('assets/images/Rectangle-1.png'),
               Transform.translate(
+                offset: const Offset(50.0, 20.0),
                 child: Image.asset('assets/images/Rectangle-2.png'),
-                offset: Offset(50.0, 20.0),
               ),
               Transform.scale(
                 scale: 1.7,
@@ -60,6 +59,7 @@ class LandingPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 145.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(left: 70.0, right: 70.0),
@@ -111,160 +111,17 @@ class LandingPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            width: 350,
-                            height: 85,
-                            padding: const EdgeInsets.only(top: 10.0),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFE5EDFD),
-                              borderRadius: BorderRadius.circular(11.0),
-                            ),
-                            child: const Text(
-                              'الزمن المتبقي لدفع رسوم الخدمة ٤ أشهر : ٠ أيام',
-                              textAlign: TextAlign.center,
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                color: Color(0xFF2A6DDE),
-                                fontFamily: 'Helvetica',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: CustomContainerWithShadow(
-                            child: Column(
-                              children: [
-                                DoubleDropdownContainer(
-                                  dropdownItemsList1: carMakeDropdownMenuItems,
-                                  dropdownItemsList2: carModelDropdownMenuItems,
-                                  label1: 'اختر الماركة',
-                                  label2: 'اختر الموديل',
-                                  hint1: 'كل الماركات',
-                                  hint2: 'كل الموديلات',
-                                ),
-                                const SizedBox(height: 16.0),
-                                DoubleDropdownContainer(
-                                  dropdownItemsList1: carMakeDropdownMenuItems,
-                                  dropdownItemsList2: carModelDropdownMenuItems,
-                                  label1: 'نوع المحرك',
-                                  label2: 'سعة المحرك',
-                                  hint1: 'اختر نوع المحرك',
-                                  hint2: 'ادخل سعة المحرك',
-                                ),
-                                const SizedBox(height: 16.0),
-                                DoubleDropdownContainer(
-                                  dropdownItemsList1: carMakeDropdownMenuItems,
-                                  dropdownItemsList2: carModelDropdownMenuItems,
-                                  label1: 'بلد الاقامة',
-                                  label2: 'بلد المنشأ',
-                                  hint1: 'اختر البلد',
-                                  hint2: 'اختر البلد',
-                                ),
-                                const SizedBox(height: 24.0),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 36.0),
-                                  child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text('نوع السيارة',
-                                        style: TextStyle(
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 15.0,
-                                            fontWeight: FontWeight.w400)),
-                                  ),
-                                ),
-                                const SizedBox(height: 10.0),
-                                const CustomRadio(),
-                                const SizedBox(height: 26.0),
-                                CustomElevatedButton(
-                                  onPressed: () {},
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: const [
-                                      Icon(Icons.arrow_back, size: 16.0),
-                                      Text(
-                                        'إحسب الرسوم',
-                                        style: TextStyle(
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 36.0),
-                                const Text(
-                                    'لم تجد السيارة التي ترغب باستيرادها؟',
-                                    style: TextStyle(
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w400)),
-                                const SizedBox(height: 10.0),
-                                const Text('استعلم عن امكانية استيراد سيارتك',
-                                    style: TextStyle(
-                                        letterSpacing: -0.4,
-                                        color: Color(0xFF2769F1),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w700)),
-                                const SizedBox(height: 25.0),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    const CalculateFees(),
                     const SizedBox(height: 35.0),
-                    CustomContainerWithShadow(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Text(
-                              'برجاء استكمال حسابك',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                color: Color(0xFF212121),
-                                fontFamily: 'Helvetica',
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            const SizedBox(height: 25.0),
-                            const StepBars(),
-                            const SizedBox(height: 16.0),
-                            const Text(
-                              'برجاء رفع المستندات المطلوبة لاستكمال حسابك',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontFamily: 'Helvetica',
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            Row(
-                              textDirection: TextDirection.rtl,
-                              children: [
-                                Container(
-                                  width: 9.0,
-                                  height: 9.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF2769F1),
-                                    shape: BoxShape.circle,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    )
+                    const CompleteAccount(),
+                    const SizedBox(height: 16.0),
+                    const AddBankAccount(),
+                    const SizedBox(height: 16.0),
+                    const ImportSteps(),
+                    const SizedBox(height: 16.0),
+                    const ContactUsBox(),
+                    const SizedBox(height: 16.0),
+                    NewlyAddedCars(),
                   ],
                 ),
               ),
@@ -275,6 +132,11 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
 
 
 

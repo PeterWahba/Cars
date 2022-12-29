@@ -1,3 +1,4 @@
+import 'package:cars/widgets/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:cars/widgets/custom_radio_buttons.dart';
 import 'package:cars/widgets/double_dropdown_container.dart';
@@ -111,28 +112,7 @@ class EditCar extends StatelessWidget {
               const SizedBox(height: 26.0),
               TermsAndConditions(),
               const SizedBox(height: 26.0),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  maximumSize: const Size(325, 60),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(45.0)),
-                  ),
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Icon(Icons.arrow_back, size: 16.0),
-                    Text(
-                      'التالي',
-                      style: TextStyle(
-                          fontFamily: 'Dubai',
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ),
+              CustomGradientButton(onPressed: () {}, label: 'التالي'),
               SizedBox(height: 20.0),
             ],
           ),

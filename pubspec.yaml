@@ -77,11 +77,13 @@ flutter:
     - assets/images/landing-page-main-icon.png
     - assets/images/Rectangle-1.png
     - assets/images/Rectangle-2.png
-
-
-
-
-
+    - assets/images/add-bank-account.png
+    - assets/images/import-step-1.png
+    - assets/images/import-step-2.png
+    - assets/images/import-step-3.png
+    - assets/images/import-step-4.png
+    - assets/images/help-icon.png
+    - assets/images/car_logo.png
 
 
 

@@ -1,4 +1,3 @@
-import 'package:cars/controller/dropdown_controller.dart';
 import 'package:cars/widgets/custom_gradient_button.dart';
 import 'package:cars/widgets/custom_radio_buttons.dart';
 import 'package:cars/widgets/custome_container_with_shadow.dart';
@@ -6,8 +5,10 @@ import 'package:cars/widgets/double_dropdown_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CalculateFees extends GetView<DropDownController> {
-  CalculateFees({
+import '../app/modules/landing/controllers/landing_controller.dart';
+
+class CalculateFees extends GetView<LandingController> {
+  const CalculateFees({
     Key? key,
   }) : super(key: key);
   @override
@@ -48,32 +49,51 @@ class CalculateFees extends GetView<DropDownController> {
                   //       print(snapshot.data);
                   //       return snapshot.data;
                   //     }),
-                  DoubleDropdownContainer(
-                    dropdownItemsList1: controller.carMakeDropdownMenuItems,
-                    dropdownItemsList2: controller.carModelDropdownMenuItems,
-                    label1: 'اختر الماركة',
-                    label2: 'اختر الموديل',
-                    hint1: 'كل الماركات',
-                    hint2: 'كل الموديلات',
+                  Obx(
+                    () => DoubleDropdownContainer(
+                      dropdownItemsList1: controller.carMakeDropdownMenuItems(),
+                      dropdownItemsList2: controller.carModelDropdownMenuItems,
+                      label1: controller.testText,
+                      label2: 'اختر الموديل',
+                      hint1: 'كل الماركات',
+                      hint2: 'كل الموديلات',
+                      value1: controller.initValue1(),
+                      value2: controller.initValue2(),
+                      onChange1: (newValue) {
+                        controller.changeRightDropDown(newValue as RxString);
+                      },
+                      onChange2: (newValue) {
+                        controller.changeLeftDropDown(newValue as RxString);
+                      },
+                    ),
                   ),
+
                   const SizedBox(height: 16.0),
                   DoubleDropdownContainer(
-                    dropdownItemsList1: controller.engineCapacity,
-                    dropdownItemsList2: controller.engineType,
+                    dropdownItemsList1: controller.carMakeDropdownMenuItems(),
+                    dropdownItemsList2: controller.carModelDropdownMenuItems,
                     label1: 'نوع المحرك',
                     label2: 'سعة المحرك',
                     hint1: 'اختر نوع المحرك',
                     hint2: 'ادخل سعة المحرك',
+                    value1: controller.initValue1(),
+                    value2: controller.initValue2(),
+                    onChange1: (val) {},
+                    onChange2: (val) {},
                   ),
-                  // const SizedBox(height: 16.0),
-                  // DoubleDropdownContainer(
-                  //   dropdownItemsList1: residenceCountry,
-                  //   dropdownItemsList2: makeCountry,
-                  //   label1: 'بلد الاقامة',
-                  //   label2: 'بلد المنشأ',
-                  //   hint1: 'اختر البلد',
-                  //   hint2: 'اختر البلد',
-                  // ),
+                  const SizedBox(height: 16.0),
+                  DoubleDropdownContainer(
+                    dropdownItemsList1: controller.carMakeDropdownMenuItems(),
+                    dropdownItemsList2: controller.carModelDropdownMenuItems,
+                    label1: 'بلد الاقامة',
+                    label2: 'بلد المنشأ',
+                    hint1: 'اختر البلد',
+                    hint2: 'اختر البلد',
+                    value1: controller.initValue1(),
+                    value2: controller.initValue2(),
+                    onChange1: (val) {},
+                    onChange2: (val) {},
+                  ),
                   const SizedBox(height: 24.0),
                   const Padding(
                     padding: EdgeInsets.only(right: 36.0),

@@ -1,10 +1,7 @@
-import 'dart:async';
-
-import 'package:cars/controller/dropdown_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DoubleDropdownContainer extends GetWidget<DropDownController> {
+class DoubleDropdownContainer extends StatelessWidget {
   final List<DropdownMenuItem<RxString>> dropdownItemsList1;
   final List<DropdownMenuItem<RxString>> dropdownItemsList2;
   final String label1;
@@ -13,8 +10,10 @@ class DoubleDropdownContainer extends GetWidget<DropDownController> {
   final String hint2;
   final String value1;
   final String value2;
+  final Function(Object?)? onChange1;
+  final Function(Object?)? onChange2;
 
-  DoubleDropdownContainer({
+  const DoubleDropdownContainer({
     Key? key,
     required this.dropdownItemsList1,
     required this.dropdownItemsList2,
@@ -22,8 +21,10 @@ class DoubleDropdownContainer extends GetWidget<DropDownController> {
     required this.label2,
     this.hint1 = '',
     this.hint2 = '',
-    this.value1 = '',
-    this.value2 = '',
+    required this.value1,
+    required this.value2,
+    required this.onChange1,
+    required this.onChange2,
   }) : super(key: key);
 
   @override
@@ -71,31 +72,27 @@ class DoubleDropdownContainer extends GetWidget<DropDownController> {
                 SizedBox(
                   width: 140,
                   child: DropdownButtonHideUnderline(
-                    child: Obx(
-                      () => DropdownButton(
-                        onChanged: (newValue) {
-                          controller.changeRightDropDown(newValue as RxString);
-                        },
-                        items: dropdownItemsList1,
-                        value: controller.initValue1(),
-                        hint: Text(
-                          hint1,
-                          style: const TextStyle(
-                            fontFamily: 'Helvetica',
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF7D7D7D),
-                          ),
-                        ),
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.black,
-                        ),
+                    child: DropdownButton(
+                      onChanged: onChange1,
+                      items: dropdownItemsList1,
+                      value: value1,
+                      hint: Text(
+                        hint1,
                         style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400),
+                          fontFamily: 'Helvetica',
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF7D7D7D),
+                        ),
                       ),
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                      ),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w400),
                     ),
                   ),
                 ),
@@ -106,31 +103,27 @@ class DoubleDropdownContainer extends GetWidget<DropDownController> {
                 SizedBox(
                   width: 140,
                   child: DropdownButtonHideUnderline(
-                    child: Obx(
-                      () => DropdownButton(
-                        items: dropdownItemsList2,
-                        onChanged: (newValue) {
-                          controller.changeLeftDropDown(newValue);
-                        },
-                        value: controller.initValue2.value,
-                        hint: Text(
-                          hint2,
-                          style: const TextStyle(
-                            fontFamily: 'Helvetica',
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF7D7D7D),
-                          ),
-                        ),
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.black,
-                        ),
+                    child: DropdownButton(
+                      items: dropdownItemsList2,
+                      onChanged: onChange2,
+                      value: value2,
+                      hint: Text(
+                        hint2,
                         style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400),
+                          fontFamily: 'Helvetica',
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF7D7D7D),
+                        ),
                       ),
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                      ),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w400),
                     ),
                   ),
                 ),

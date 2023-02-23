@@ -1,12 +1,8 @@
-import 'package:cars/controller/dropdown_controller.dart';
-import 'package:cars/screens/landing_page.dart';
 import 'package:cars/widgets/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:cars/widgets/custom_radio_buttons.dart';
-import 'package:cars/widgets/double_dropdown_container.dart';
 import 'package:cars/widgets/terms_conditions.dart';
 import 'package:get/get.dart';
-import '../data/dropdown_data.dart';
 
 class EditCar extends StatelessWidget {
   const EditCar({Key? key}) : super(key: key);

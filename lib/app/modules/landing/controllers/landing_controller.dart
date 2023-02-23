@@ -1,14 +1,15 @@
-import 'package:cars/data/dropdown_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DropDownController extends GetxController {
+import '../../../../data/dropdown_data.dart';
+
+class LandingController extends GetxController {
   RxString initValue1 = '1'.obs;
   RxString initValue2 = '1'.obs;
-
+  String testText = 'test';
   var dropDownData;
   int length = 0;
-
+  List<DropdownMenuItem<RxString>> tempList = [];
   RxList<DropdownMenuItem<RxString>> carMakeDropdownMenuItems = [
     DropdownMenuItem<RxString>(
       value: '1'.obs,
@@ -111,6 +112,12 @@ class DropDownController extends GetxController {
     )
   ];
 
+  @override
+  void onInit() {
+    super.onInit();
+    getData();
+  }
+
   getData() async {
     dropDownData = await DropDownDataProvider().fetchData();
     print(dropDownData.runtimeType);
@@ -124,9 +131,12 @@ class DropDownController extends GetxController {
   }
 
   buildCarMakeList() {
+    print(carMakeDropdownMenuItems.length);
+
     print('Building List');
-    carMakeDropdownMenuItems =
-        List<DropdownMenuItem<RxString>>.generate(length, (index) {
+    testText = 'test2';
+
+    tempList = List<DropdownMenuItem<RxString>>.generate(length, (index) {
       print('${dropDownData.data.items[index].name}');
       return DropdownMenuItem(
         value: '${index + 1}'.obs,
@@ -145,14 +155,18 @@ class DropDownController extends GetxController {
         ),
       );
     }, growable: true)
-            .obs;
+        .toList();
+    carMakeDropdownMenuItems.value = tempList;
+    print(carMakeDropdownMenuItems.length);
   }
 
   void changeRightDropDown(newValue) {
     initValue1.value = newValue.value;
+    update();
   }
 
   void changeLeftDropDown(newValue) {
     initValue2.value = newValue.value;
+    update();
   }
 }

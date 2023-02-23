@@ -1,5 +1,7 @@
+import 'package:cars/screens/edit_car.dart';
 import 'package:cars/widgets/custon_outlined_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContactUsBox extends StatelessWidget {
   const ContactUsBox({super.key});
@@ -53,7 +55,11 @@ class ContactUsBox extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        CustomOutlinedButton(onPressed: () {}, label: 'تواصل معنا'),
+        CustomOutlinedButton(
+            onPressed: () {
+              Get.toNamed('/EditCar');
+            },
+            label: 'تواصل معنا'),
       ]),
     );
   }

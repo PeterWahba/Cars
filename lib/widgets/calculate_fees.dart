@@ -1,15 +1,15 @@
-import 'package:cars/data/dropdown_data.dart';
+import 'package:cars/controller/dropdown_controller.dart';
 import 'package:cars/widgets/custom_gradient_button.dart';
 import 'package:cars/widgets/custom_radio_buttons.dart';
 import 'package:cars/widgets/custome_container_with_shadow.dart';
 import 'package:cars/widgets/double_dropdown_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CalculateFees extends StatelessWidget {
-  const CalculateFees({
+class CalculateFees extends GetView<DropDownController> {
+  CalculateFees({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -42,9 +42,15 @@ class CalculateFees extends StatelessWidget {
             child: CustomContainerWithShadow(
               child: Column(
                 children: [
+                  // FutureBuilder(
+                  //     future: controller.buildCarMakeList(),
+                  //     builder: (context, AsyncSnapshot snapshot) {
+                  //       print(snapshot.data);
+                  //       return snapshot.data;
+                  //     }),
                   DoubleDropdownContainer(
-                    dropdownItemsList1: carMakeDropdownMenuItems,
-                    dropdownItemsList2: carModelDropdownMenuItems,
+                    dropdownItemsList1: controller.carMakeDropdownMenuItems,
+                    dropdownItemsList2: controller.carModelDropdownMenuItems,
                     label1: 'اختر الماركة',
                     label2: 'اختر الموديل',
                     hint1: 'كل الماركات',
@@ -52,22 +58,22 @@ class CalculateFees extends StatelessWidget {
                   ),
                   const SizedBox(height: 16.0),
                   DoubleDropdownContainer(
-                    dropdownItemsList1: carMakeDropdownMenuItems,
-                    dropdownItemsList2: carModelDropdownMenuItems,
+                    dropdownItemsList1: controller.engineCapacity,
+                    dropdownItemsList2: controller.engineType,
                     label1: 'نوع المحرك',
                     label2: 'سعة المحرك',
                     hint1: 'اختر نوع المحرك',
                     hint2: 'ادخل سعة المحرك',
                   ),
-                  const SizedBox(height: 16.0),
-                  DoubleDropdownContainer(
-                    dropdownItemsList1: carMakeDropdownMenuItems,
-                    dropdownItemsList2: carModelDropdownMenuItems,
-                    label1: 'بلد الاقامة',
-                    label2: 'بلد المنشأ',
-                    hint1: 'اختر البلد',
-                    hint2: 'اختر البلد',
-                  ),
+                  // const SizedBox(height: 16.0),
+                  // DoubleDropdownContainer(
+                  //   dropdownItemsList1: residenceCountry,
+                  //   dropdownItemsList2: makeCountry,
+                  //   label1: 'بلد الاقامة',
+                  //   label2: 'بلد المنشأ',
+                  //   hint1: 'اختر البلد',
+                  //   hint2: 'اختر البلد',
+                  // ),
                   const SizedBox(height: 24.0),
                   const Padding(
                     padding: EdgeInsets.only(right: 36.0),
@@ -81,7 +87,7 @@ class CalculateFees extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10.0),
-                  const CustomRadio(),
+                  CustomRadio(),
                   const SizedBox(height: 26.0),
                   CustomGradientButton(onPressed: () {}, label: 'إحسب الرسوم'),
                   const SizedBox(height: 36.0),

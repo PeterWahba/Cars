@@ -6,128 +6,133 @@ import 'package:cars/widgets/import_steps.dart';
 import 'package:cars/widgets/newly_added_cars.dart';
 import 'package:cars/widgets/user_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LandingPage extends StatelessWidget {
   final TrackingScrollController scrollController = TrackingScrollController();
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Stack(
-            fit: StackFit.loose,
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                      Color(0xFF327DE3),
-                      Color(0xFF1A4CD5),
-                    ])),
-                height: 691.0,
-              ),
-              Image.asset('assets/images/Rectangle-1.png'),
-              Transform.translate(
-                offset: const Offset(50.0, 20.0),
-                child: Image.asset('assets/images/Rectangle-2.png'),
-              ),
-              Transform.scale(
-                scale: 1.7,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 305.0),
-                  height: 564.0,
-                  width: 548.0,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Stack(
+              fit: StackFit.loose,
+              children: [
+                Container(
                   decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xFFFAFAFA),
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                        Color(0xFF327DE3),
+                        Color(0xFF1A4CD5),
+                      ])),
+                  height: 691.0,
+                ),
+                Image.asset('assets/images/Rectangle-1.png'),
+                Transform.translate(
+                  offset: const Offset(50.0, 20.0),
+                  child: Image.asset('assets/images/Rectangle-2.png'),
+                ),
+                Transform.scale(
+                  scale: 1.7,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 305.0),
+                    height: 564.0,
+                    width: 548.0,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFFFAFAFA),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 60, left: 20, right: 20.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    UserButton(),
-                    Image.asset('assets/images/cars-logo.png'),
-                  ],
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 60, left: 20, right: 20.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      UserButton(),
+                      Image.asset('assets/images/cars-logo.png'),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 145.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 70.0, right: 70.0),
-                      child: Text(
-                        'استورد سيارتك من الخارج دلوقتي بخطوات بسيطة!',
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF),
-                            fontFamily: 'Helvetica',
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w700,
-                            height: 1.25),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(
-                          top: 15, right: 50, left: 50, bottom: 15.0),
-                      child: Text(
-                        'قدم على طلب لو انت من المقيمين في الخارج، و استورد سيارتك من الخارج إلى مصر بخطوات بسيطة.',
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF),
-                            fontFamily: 'Helvetica',
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400,
-                            height: 1.38),
-                      ),
-                    ),
-                    Image.asset(
-                      'assets/images/landing-page-main-icon.png',
-                      scale: 0.9,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 25, right: 20, bottom: 25),
-                      child: Align(
-                        alignment: Alignment.centerRight,
+                Padding(
+                  padding: const EdgeInsets.only(top: 145.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 70.0, right: 70.0),
                         child: Text(
-                          'احسب رسومك هنا لتسجيل طلبك',
+                          'استورد سيارتك من الخارج دلوقتي بخطوات بسيطة!',
                           textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.right,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Color(0xFF212121),
-                            fontFamily: 'Helvetica',
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w700,
+                              color: Color(0xFFFFFFFF),
+                              fontFamily: 'Helvetica',
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.w700,
+                              height: 1.25),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                            top: 15, right: 50, left: 50, bottom: 15.0),
+                        child: Text(
+                          'قدم على طلب لو انت من المقيمين في الخارج، و استورد سيارتك من الخارج إلى مصر بخطوات بسيطة.',
+                          textDirection: TextDirection.rtl,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontFamily: 'Helvetica',
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w400,
+                              height: 1.38),
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/images/landing-page-main-icon.png',
+                        scale: 0.9,
+                      ),
+                      const Padding(
+                        padding:
+                            EdgeInsets.only(top: 25, right: 20, bottom: 25),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'احسب رسومك هنا لتسجيل طلبك',
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              color: Color(0xFF212121),
+                              fontFamily: 'Helvetica',
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const CalculateFees(),
-                    const SizedBox(height: 35.0),
-                    const CompleteAccount(),
-                    const SizedBox(height: 16.0),
-                    const AddBankAccount(),
-                    const SizedBox(height: 16.0),
-                    const ImportSteps(),
-                    const SizedBox(height: 16.0),
-                    const ContactUsBox(),
-                    const SizedBox(height: 16.0),
-                    NewlyAddedCars(),
-                  ],
+                      CalculateFees(),
+                      const SizedBox(height: 35.0),
+                      const CompleteAccount(),
+                      const SizedBox(height: 16.0),
+                      const AddBankAccount(),
+                      const SizedBox(height: 16.0),
+                      const ImportSteps(),
+                      const SizedBox(height: 16.0),
+                      const ContactUsBox(),
+                      const SizedBox(height: 16.0),
+                      NewlyAddedCars(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

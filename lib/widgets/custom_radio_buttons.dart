@@ -1,13 +1,10 @@
+import 'package:cars/controller/radiobuttons_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomRadio extends StatefulWidget {
-  const CustomRadio({Key? key}) : super(key: key);
+class CustomRadio extends StatelessWidget {
+  CustomRadio({Key? key}) : super(key: key);
 
-  @override
-  State<CustomRadio> createState() => _CustomRadioState();
-}
-
-class _CustomRadioState extends State<CustomRadio> {
   List<RadioModel> radioButtons = [
     RadioModel(false, 'سيارة مستعملة'),
     RadioModel(true, 'سيارة جديدة'),
@@ -15,30 +12,28 @@ class _CustomRadioState extends State<CustomRadio> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        InkWell(
-          onTap: () {
-            setState(() {
-              radioButtons.forEach((element) => element.isSelected = false);
-              radioButtons[0].isSelected = true;
-            });
-          },
-          child: RadioItem(radioButtons[0]),
-        ),
-        const SizedBox(width: 11.87),
-        InkWell(
-          onTap: () {
-            setState(() {
-              radioButtons.forEach((element) => element.isSelected = false);
-              radioButtons[1].isSelected = true;
-            });
-          },
-          child: RadioItem(radioButtons[1]),
-        )
-      ],
+    return GetBuilder<RadioButtonsController>(
+      init: RadioButtonsController(),
+      global: false,
+      builder: (controller) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {
+              controller.change(radioButtons, 0);
+            },
+            child: RadioItem(radioButtons[0]),
+          ),
+          const SizedBox(width: 11.87),
+          InkWell(
+            onTap: () {
+              controller.change(radioButtons, 1);
+            },
+            child: RadioItem(radioButtons[1]),
+          )
+        ],
+      ),
     );
   }
 }
